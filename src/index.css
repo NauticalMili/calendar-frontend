@@ -1,0 +1,196 @@
+/* Theme tokens — applied via data-theme on <body> (set in main.jsx + App toggle) */
+
+body[data-theme="light"] {
+  color-scheme: light;
+
+  /* Backgrounds */
+  --bg: #f4f4f4;
+  --bg-elevated: #ffffff;
+  --card: #ffffff;
+  --modal-backdrop: rgba(0, 0, 0, 0.5);
+
+  /* Text */
+  --text: #161616;
+  --muted: #6f6f6f;
+  --link: #0f62fe;
+  --link-hover: #0043ce;
+
+  /* Borders & dividers */
+  --border: #e0e0e0;
+  --border-focus: #0f62fe;
+
+  /* Form elements */
+  --input-bg: #ffffff;
+  --input-border: #8d8d8d;
+  --input-placeholder: #a8a8a8;
+
+  /* Table */
+  --table-header-bg: #e8e8e8;
+  --table-stripe: #f4f4f4;
+  --table-hover: #e0e0e0;
+
+  /* Shadows */
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow-nav: 0 1px 0 rgba(0, 0, 0, 0.05);
+  --shadow-focus: 0 0 0 2px var(--border-focus);
+
+  /* Interactive states */
+  --primary: #0f62fe;
+  --primary-hover: #0043ce;
+  --primary-active: #002d9c;
+  --danger: #da1e28;
+  --danger-muted: rgba(218, 30, 40, 0.1);
+  --danger-hover: #b81921;
+  --ok: #24a148;
+  --ok-muted: rgba(36, 161, 72, 0.1);
+  --ok-hover: #198038;
+
+  /* Banner */
+  --banner-error-bg: #fff2f2;
+  --banner-error-border: #ffcdcd;
+  --banner-error-text: #da1e28;
+
+  /* Disabled */
+  --disabled-bg: #e0e0e0;
+  --disabled-text: #8d8d8d;
+}
+
+body[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* Backgrounds */
+  --bg: #161616;
+  --bg-elevated: #262626;
+  --card: #262626;
+  --modal-backdrop: rgba(0, 0, 0, 0.75);
+
+  /* Text */
+  --text: #f4f4f4;
+  --muted: #c6c6c6;
+  --link: #78a9ff;
+  --link-hover: #a6c8ff;
+
+  /* Borders & dividers */
+  --border: #393939;
+  --border-focus: #0f62fe;
+
+  /* Form elements */
+  --input-bg: #262626;
+  --input-border: #6f6f6f;
+  --input-placeholder: #8d8d8d;
+
+  /* Table */
+  --table-header-bg: #262626;
+  --table-stripe: #202020;
+  --table-hover: #393939;
+
+  /* Shadows */
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-nav: 0 1px 0 rgba(0, 0, 0, 0.2);
+  --shadow-focus: 0 0 0 2px var(--border-focus);
+
+  /* Interactive states */
+  --primary: #78a9ff;
+  --primary-hover: #a6c8ff;
+  --primary-active: #be95ff;
+  --danger: #ff8389;
+  --danger-muted: rgba(255, 131, 137, 0.15);
+  --danger-hover: #ffb3b8;
+  --ok: #42be65;
+  --ok-muted: rgba(66, 190, 101, 0.12);
+  --ok-hover: #6fdc8c;
+
+  /* Banner */
+  --banner-error-bg: rgba(218, 30, 40, 0.15);
+  --banner-error-border: rgba(218, 30, 40, 0.5);
+  --banner-error-text: #ffb3b8;
+
+  /* Disabled */
+  --disabled-bg: #393939;
+  --disabled-text: #6f6f6f;
+}
+
+:root {
+  /* Spacing (8px grid) */
+  --spacing-01: 0.125rem; /* 2px */
+  --spacing-02: 0.25rem; /* 4px */
+  --spacing-03: 0.5rem; /* 8px */
+  --spacing-04: 0.75rem; /* 12px */
+  --spacing-05: 1rem; /* 16px */
+  --spacing-06: 1.5rem; /* 24px */
+  --spacing-07: 2rem; /* 32px */
+  --spacing-08: 2.5rem; /* 40px */
+  --spacing-09: 3rem; /* 48px */
+
+  /* Border radii */
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-base: all 0.2s ease;
+
+  font-family: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  margin: 0;
+  transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+*:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+body.theme-transition {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+a {
+  color: var(--primary);
+}
+
+button {
+  font-family: inherit;
+  transition: var(--transition-base);
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+  color: var(--text);
+  transition: var(--transition-base);
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled {
+  background-color: var(--disabled-bg);
+  color: var(--disabled-text);
+  cursor: not-allowed;
+}
